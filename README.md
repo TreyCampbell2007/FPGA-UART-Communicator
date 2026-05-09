@@ -25,7 +25,7 @@ This system uses a finite state machine that has the following states:
 - IDLE
   - It is in this state when there is no data for the system to transmit, so it is just sending 1 to system and waiting for a start signal.
 - START
-  - The state where it sends the start button signal of 0, where it then transitions to the next state once that sends
+  - The state where it sends the signal of 0 to the other hardware, where it then transitions to the DATA state after sending it. 
 - DATA
   - This is where the FPGA sends in the byte of data, going through 8 states of sending the data sequentially before moving onto the last state
 - STOP
