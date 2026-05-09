@@ -7,10 +7,10 @@ I wanted to create a project that would help me learn more about VHDL programmin
 # UART Communication
 UART communication is the process of sending a stream of data in sequence (serial) between two pieces of hardware. This is used in embedded programming and FPGAs due to their need to transfer data to other systems. Both systems will have a UART system with a Transmitter (Tx) and Receiver(Rx). The transmitter is in charge of sending data to the other system, while the receiver is in charge of receiving data from the other system.
 
-## Baud Rate
+### Baud Rate
 When connecting between two pieces of hardware, they need to decide the rate at which they communicate, this is what's known as the baud rate. It can cause major problems if the two systems aren't communicating at the same rate. For this project I used a baud rate of 115200.
 
-## Sending/Reading
+### Sending/Reading
 The transmitter signal of a system constantly sends out '1' when there is no input for the other system to read. Whenever the transmitter of some system A wants the receiver of some system B to actually pay attention to what it's sending, then system A will send a 0. This follows with a byte of information before sending another 1 to signify that it is stopping.
 
 For this specific project, system B (my computer) is taking my inputs from the FPGA board, interpreting them as ASCII characters, and then printing them out through a terminal created using PuTTY.
