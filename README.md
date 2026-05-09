@@ -20,21 +20,21 @@ It is important to mention that there is more to UART communication than just a 
 # Implementation
 Using the NEXYS A7 FPGA board, Vivado, and VHDL I created a project that creates the UART communication system. This allows the user to control the input of the board and when to send the data. Using switches 0-7 and button C on the board, the user can control the input byte of data and then presses button C when they want to send the data.
 
-## The Finite State Machine
+### The Finite State Machine
 This system uses a finite state machine that has the following states:
-### IDLE
+#### IDLE
 It is in this state when there is no data for the system to transmit, so it is just sending 1 to system and waiting for a start signal.
-### START
+#### START
 The state where it sends the start button signal of 0, where it then transitions to the next state once that sends
-### DATA
+#### DATA
 This is where the FPGA sends in the byte of data, going through 8 states of sending the data sequentially before moving onto the last state
-### STOP
+#### STOP
 The FPGA sends the final 1 that the state needs to transition understand that it doesn't need to read any more data. This finally transitions back into the idle state.
 
-## Shift Register
+### Shift Register
 Since the UART communication system is based on sequential pieces of data, the 8 bits of data need to be sent in series. This is done using a shift register that shifts the register to the right and replaces the MSB with a 1.
 
-## Debouncer
+### Debouncer
 When using mechanical components such as buttons in projects, you need to account for small erros in mechanical movement. The button used for the start signal needs to account for debouncing so that it doesn't send a bunch of accidental signals to the system that it's trying to communicate with.
 
 # Further Plans
