@@ -22,14 +22,14 @@ Using the NEXYS A7 FPGA board, Vivado, and VHDL I created a project that creates
 
 ### The Finite State Machine
 This system uses a finite state machine that has the following states:
-#### IDLE
-It is in this state when there is no data for the system to transmit, so it is just sending 1 to system and waiting for a start signal.
-#### START
-The state where it sends the start button signal of 0, where it then transitions to the next state once that sends
-#### DATA
-This is where the FPGA sends in the byte of data, going through 8 states of sending the data sequentially before moving onto the last state
-#### STOP
-The FPGA sends the final 1 that the state needs to transition understand that it doesn't need to read any more data. This finally transitions back into the idle state.
+- IDLE
+  - It is in this state when there is no data for the system to transmit, so it is just sending 1 to system and waiting for a start signal.
+- START
+  - The state where it sends the start button signal of 0, where it then transitions to the next state once that sends
+- DATA
+  - This is where the FPGA sends in the byte of data, going through 8 states of sending the data sequentially before moving onto the last state
+- STOP
+  - The FPGA sends the final 1 that the state needs to transition understand that it doesn't need to read any more data. This finally transitions back into the idle state.
 
 ### Shift Register
 Since the UART communication system is based on sequential pieces of data, the 8 bits of data need to be sent in series. This is done using a shift register that shifts the register to the right and replaces the MSB with a 1.
